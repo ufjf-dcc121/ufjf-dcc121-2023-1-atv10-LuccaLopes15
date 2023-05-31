@@ -1,7 +1,8 @@
-import { adicionar, getItems } from "./store.js";
+import { addItem, deleteItem, getItems } from "./store.js";
 
 const form = document.forms.entrada;
 form.addEventListener('submit', envia);
+form.remover.addEventListener('click', remover);
 
 atualiza();
 
@@ -9,9 +10,15 @@ function envia (evento) {
     evento.preventDefault();
     console.log('Formulário enviado!');
     const n = form.valor.value;
-    adicionar(n);
+    addItem(n);
     form.valor.value = "";
     form.valor.focus();
+    atualiza();
+}
+
+function remover() {
+    console.log('Remove Clicado!');
+    deleteItem();
     atualiza();
 }
 
