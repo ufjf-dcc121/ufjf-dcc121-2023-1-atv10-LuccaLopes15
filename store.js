@@ -1,12 +1,16 @@
-const store =  { estado: [0,1,2,3] };
+const store =  { estado: [] };
 
 export default store;
 
 
-export function adicionar (valor) {
+export function addItem (valor) {
     store.estado.push(valor);
 }
 
 export function getItems () {
     return [...store.estado];
+}
+
+export function deleteItem () {
+    store.estado.pop();
 }
